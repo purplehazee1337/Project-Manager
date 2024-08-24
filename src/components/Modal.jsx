@@ -13,10 +13,10 @@ const Modal = forwardRef(function Modal({ children, closeButtonText }, ref) {
   });
 
   return createPortal(
-    <dialog ref={dialog}>
+    <dialog ref={dialog} className="bg-slate-600 p-5 rounded-md text-center text-white">
       {children}
       <form method="dialog">
-        <button>{closeButtonText}</button>
+        <button className="bg-red-700 text-white font-bold py-1 px-3 rounded-md mt-3 hover:opacity-70">{closeButtonText}</button>
       </form>
     </dialog>,
     document.getElementById("modal-root")

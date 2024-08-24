@@ -24,6 +24,16 @@ function App() {
     ],
   });
 
+  let content;
+
+  const project = projectsState.projects.find(
+    (project) => project.id === projectsState.selectedProjectId
+  );
+
+  const selectedTasks = projectsState.tasks.filter(
+    (task) => task.projectID === projectsState.selectedProjectId
+  );
+
   function handleSelectProjectId(id) {
     setProjectsState((prev) => {
       return { ...prev, selectedProjectId: id };
@@ -91,16 +101,6 @@ function App() {
     });
   }
 
-  let content;
-
-  const project = projectsState.projects.find(
-    (project) => project.id === projectsState.selectedProjectId
-  );
-
-  const selectedTasks = projectsState.tasks.filter(
-    (task) => task.projectID === projectsState.selectedProjectId
-  );
-
   switch (projectsState.selectedProjectId) {
     case null:
       content = (
@@ -131,10 +131,10 @@ function App() {
 
   return (
     <>
-      <h1 className="my-8 text-center text-5xl font-bold">
+      <h1 className="my-8 text-center text-5xl font-bold px-5">
         React Project Manager
       </h1>
-      <section className="flex gap-5 p-5">
+      <section className="flex gap-5 p-5 justify-center flex-col md:flex-row">
         <SideBar
           projects={projectsState.projects}
           handleSelectProjectId={handleSelectProjectId}

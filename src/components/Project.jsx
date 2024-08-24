@@ -28,10 +28,10 @@ export default function Project({
         <h2>Invalid input</h2>
         <p>You forgot to enter a value.</p>
       </Modal>
-      <div className="bg-slate-500 text-white text-2xl flex gap-6 flex-col w-full rounded-md px-5 py-5 text-center items-center h-full">
+      <div className="bg-slate-500 text-white text-2xl flex gap-6 flex-col rounded-md px-5 py-5 text-center items-center h-full">
         <div className="flex w-full justify-between">
           <h2 className="text-3xl font-bold">{project.title}</h2>
-          <button className="text-lg" onClick={handleDeleteProjekt}>
+          <button className="text-lg hover:text-red-600" onClick={handleDeleteProjekt}>
             Delete
           </button>
         </div>
@@ -45,9 +45,9 @@ export default function Project({
         <div className="w-full">
           <h2>Tasks</h2>
           <div className=" flex text-left gap-2">
-            <input ref={input} className="w-full text-black" />{" "}
+            <input ref={input} className="w-full text-black rounded-md" />{" "}
             <button
-              className="p-1 bg-gray-950 rounded-md text-lg w-32"
+              className="p-1 bg-gray-950 rounded-md text-lg w-32 hover:bg-green-800"
               onClick={handleSave}
             >
               Add Task
@@ -56,10 +56,10 @@ export default function Project({
           <ul>
             {selectedTasks.map((task) => {
               return (
-                <li key={task.id} className="flex text-left justify-between">
+                <li key={task.id} className="flex text-left justify-between py-2">
                   {task.text}
                   <button
-                    className="text-lg"
+                    className="text-lg hover:text-red-600"
                     onClick={() => {
                       handleDeleteTask(task.id);
                     }}

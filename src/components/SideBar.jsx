@@ -1,8 +1,8 @@
 export default function SideBar({ projects, handleSelectProjectId }) {
   return (
-    <nav className="bg-slate-700 text-white flex gap-6 flex-col w-96 rounded-md p-5 h-full">
+    <nav className="bg-slate-700 text-white flex gap-6 flex-col w-max-96 rounded-md p-5 h-full">
       <h2 className="text-3xl font-bold">Your projects</h2>
-      <button className="p-2 bg-gray-950 rounded-md text-2xl w-max" onClick={() => handleSelectProjectId(null)}>
+      <button className="p-2 bg-gray-950 rounded-md text-2xl w-max hover:bg-gray-800" onClick={() => handleSelectProjectId(null)}>
         + Add Project
       </button>
       <ul>
